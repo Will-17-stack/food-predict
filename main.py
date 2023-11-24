@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # Load the model when the application starts
 model = None
-model_path = "./models/Resnet152.h5"
+model_path = "models/Resnet152.h5"
 
 def load_model():
     try:
