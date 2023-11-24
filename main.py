@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # Load the model when the application starts
 model = None
-model_path = "models/Resnet152.h5"
+# model_path = "models/Resnet152.h5"
 
 def load_model():
     try:
@@ -23,8 +23,15 @@ def load_model():
     except Exception as e:
         print(f"Error loading the model: {str(e)}")
 
+# Get the absolute path to the directory containing this script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the absolute path to the model file
+model_path = os.path.join(script_dir, 'models', 'Resnet152.h5')
+
 # Preload the model
 load_model()
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
